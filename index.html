@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎂</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Pacifico&family=Great+Vibes&family=Quicksand:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-nunito bg-gradient-to-b from-pink-100 via-pink-50 to-white overflow-x-hidden">
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    
+    <!-- ========== SECTION 1: HERO ========== -->
+    <section id="hero" class="relative w-full min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="falling-hearts"></div>
+            <div class="falling-petals"></div>
+        </div>
+        
+        <div class="relative z-10 text-center max-w-4xl">
+            <!-- Birthday Image -->
+            <div class="mb-8 animate-pulse-slow">
+                <div class="relative inline-block">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-br from-pink-400 to-rose-300 blur-xl opacity-75 animate-pulse"></div>
+                    <img src="images/avatar.jpg" 
+                         alt="Birthday Person" 
+                         class="relative w-64 h-64 rounded-full border-8 border-white shadow-2xl object-cover">
+                </div>
+            </div>
+            
+            <!-- Main Greeting -->
+            <h1 class="text-6xl md:text-7xl font-dancing-script text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-rose-400 to-pink-500 mb-4 animate-glow filter drop-shadow-lg">
+                Happy Birthday!
+            </h1>
+            
+            <p class="text-2xl md:text-3xl font-pacifico text-pink-600 mb-8 animate-bounce-slow">
+                ✨ Một ngày đặc biệt dành cho bạn ✨
+            </p>
+            
+            <!-- Description -->
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-12 leading-relaxed">
+                Chúc mừng bạn đã thêm một năm tuổi thêm xinh đẹp, tài năng và tốt bụng.<br>
+                Hy vọng tất cả những ước mơ của bạn sẽ trở thành hiện thực! 🌸
+            </p>
+            
+            <!-- Music Toggle Button -->
+            <div class="mb-8">
+                <button id="musicBtn" class="bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white rounded-full p-4 shadow-lg transform hover:scale-110 transition-all duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M18 3a1 1 0 00-1.196-.15l-1 .5A2 2 0 0014 2H7a2 2 0 00-2 2v2H4a1 1 0 000 2v10a2 2 0 002 2h12a2 2 0 002-2V7a1 1 0 100-2h-1V4a1 1 0 00-.804-.98z"/>
+                    </svg>
+                </button>
+                <p class="text-sm text-pink-600 mt-2 font-quicksand">Nhấp để phát nhạc</p>
+            </div>
+            
+            <!-- Audio Element -->
+            <audio id="birthdayMusic" preload="auto" autoplay loop>
+                <source src="Images/YTDown_YouTube_Thap-Drill-Tu-Do-LBI-Gaz-Mix-Jerk-Drill-_Media_936y4HMimhg_009_128k.mp3" type="audio/mpeg">
+            </audio>
+            
+            <!-- CTA Button -->
+            <button id="scrollBtn" class="relative inline-block mt-8">
+                <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-rose-500 rounded-full blur-lg opacity-75 animate-pulse"></div>
+                <div class="relative px-8 py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                    Cuộn xuống tiếp đi Fen 👇
+                    <svg class="w-5 h-5 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707a1 1 0 00-1.414-1.414L11 9.586V7a1 1 0 10-2 0v2.586L7.707 7.293a1 1 0 00-1.414 1.414L10 12.414l3.707-3.707z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </section>
+    
+    <!-- ========== SECTION 2: MEMORY LANE ========== -->
+    <section id="memories" class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-5xl font-dancing-script text-center text-pink-600 mb-16" data-aos="fade-up">
+                ✨ Những khoảnh khắc đáng nhớ ... ✨
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Memory Cards -->
+                <div class="memory-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative group">
+                        <img src="images/Lq.jpg" alt="Memory" class="w-full h-64 object-cover rounded-lg shadow-lg transform group-hover:rotate-2 group-hover:scale-105 transition-all duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-b-lg">
+                            <p class="text-white italic font-pacifico text-center">Khoảnh khắc chơi game</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-700 italic text-center font-quicksand">Lúc hài lúc cay lúc thua lúc thắng...</p>
+                </div>
+                
+                <div class="memory-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative group">
+                        <img src="images/tamsu.jpg" alt="Memory" class="w-full h-64 object-cover rounded-lg shadow-lg transform group-hover:rotate-2 group-hover:scale-105 transition-all duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-b-lg">
+                            <p class="text-white italic font-pacifico text-center">Lúc thăng trầm cuộc sống</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-700 italic text-center font-quicksand">Cay đắng vui sướng tâm sự mỏng mặc dù không giúp được gì nhiều</p>
+                </div>
+                
+                <div class="memory-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative group">
+                        <img src="images/lamslide.jpg" alt="Memory" class="w-full h-64 object-cover rounded-lg shadow-lg transform group-hover:rotate-2 group-hover:scale-105 transition-all duration-300">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 rounded-b-lg">
+                            <p class="text-white italic font-pacifico text-center">Khoảng khắc giúp đỡ</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-700 italic text-center font-quicksand">Fuba book làm bài , share canva edu , giúp chỉnh ảnh...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========== SECTION 3: THE LETTER ========== -->
+    <section id="letter" class="py-20 px-4 bg-gradient-to-b from-pink-50 to-pink-100 min-h-screen flex items-center justify-center">
+        <div class="max-w-2xl w-full">
+            <h2 class="text-4xl font-dancing-script text-center text-pink-600 mb-12" data-aos="fade-up">
+                💌 Lời chúc chân thành 💌
+            </h2>
+            
+            <!-- Envelope -->
+            <div id="envelope" class="envelope-container mx-auto max-w-md" data-aos="zoom-in">
+                <div class="envelope">
+                    <div class="envelope-back"></div>
+                    <div class="envelope-front">
+                        <div class="envelope-flap"></div>
+                        <div class="seal">
+                            <span class="heart-seal">❤️</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Letter Content -->
+            <div id="letterContent" class="letter-content hidden mt-12">
+                <div class="bg-white rounded-lg shadow-2xl p-12 border-4 border-pink-200 max-w-2xl mx-auto letter-paper" data-aos="fade-up">
+                    <div class="text-center mb-8">
+                        <p class="text-4xl font-pacifico text-pink-600">Dear Vân ANh,</p>
+                    </div>
+                    
+                    <div class="text-gray-700 space-y-6 leading-relaxed text-center font-quicksand">
+                        <p>
+                            Hôm nay là ngày đặc biệt nhất của bạn, và tôi muốn gửi đến bạn những lời chúc tốt đẹp nhất từ trái tim.
+                        </p>
+                        
+                        <p>
+                            Cảm ơn bạn vì đã mang lại sự vui vẻ, giúp đỡ và chơi game cùng với tôi. 
+                            Mỗi khoảnh khắc bên bạn là một khoảnh khắc quý giá.
+                        </p>
+                        
+                        <p>
+                            Mong rằng năm mới này sẽ đem đến cho bạn một năm đầy màu sắc, 
+                            những cơ hội tuyệt vời và những thành công rực rỡ! 
+                            ✨🎂💕
+                        </p>
+                        
+                        <p>
+                            Hãy luôn mỉm cười, vì bạn xứng đáng có tất cả những điều tốt đẹp nhất!
+                        </p>
+                    </div>
+                    
+                    <div class="mt-12 text-right font-pacifico text-pink-600 text-lg">
+                        <p>From Nhật,</p>
+                        <p class="mt-4 text-2xl">to Vân Anh</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ========== SECTION 4: BIRTHDAY CAKE ========== -->
+    <section id="cake" class="py-20 px-4 bg-white min-h-screen flex flex-col items-center justify-center">
+        <div class="text-center max-w-2xl">
+            <h2 class="text-5xl font-dancing-script text-pink-600 mb-12" data-aos="fade-up">
+                🎂 Cùng thổi nến nào! 🎂
+            </h2>
+            
+            <div class="mb-12" data-aos="zoom-in">
+                <!-- Cake SVG with Candles -->
+                <div class="flex justify-center">
+                    <div class="cake-container">
+                        <div class="cake">
+                            <!-- Cake Layers -->
+                            <div class="cake-base cake-layer-1"></div>
+                            <div class="cake-layer-2"></div>
+                            <div class="cake-layer-3"></div>
+                            
+                            <!-- Candles -->
+                            <div class="candle" id="candle1" style="left: 20%;">
+                                <div class="candle-stick"></div>
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle" id="candle2" style="left: 50%;">
+                                <div class="candle-stick"></div>
+                                <div class="flame"></div>
+                            </div>
+                            <div class="candle" id="candle3" style="left: 80%;">
+                                <div class="candle-stick"></div>
+                                <div class="flame"></div>
+                            </div>
+                            
+                            <!-- Strawberries -->
+                            <div class="strawberry" style="left: 15%; top: 40%;">🍓</div>
+                            <div class="strawberry" style="left: 75%; top: 35%;">🍓</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-lg text-gray-700 mt-8 font-quicksand">
+                    Nhấp vào những ngọn nến để thổi chúng! 🔥
+                </p>
+            </div>
+            
+            <button id="makeWishBtn" class="hidden px-8 py-4 bg-gradient-to-r from-pink-600 to-rose-600 text-white font-bold rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                💭 Click on 💭
+            </button>
+        </div>
+    </section>
+    
+    <!-- ========== SECTION 5: FOOTER ========== -->
+    <footer id="footer" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white py-12 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-2xl font-dancing-script mb-4">
+                Made by : Nhật Quên Tên 
+            </p>
+            <p class="text-pink-100 font-quicksand mb-8">
+                Chúc bạn một ngày sinh nhật tuyệt vời! 🎉✨
+            </p>
+            
+            <!-- Animated Character -->
+            <div class="character-wave text-6xl">👋😸</div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
