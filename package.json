@@ -1,0 +1,29 @@
+{
+  "name": "cosmic-birthday-website",
+  "version": "1.0.0",
+  "description": "Hành Trình Vũ Trụ - Trang Web Sinh Nhật Huyền Bí",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -o",
+    "dev": "npx live-server --port=8080",
+    "build": "echo 'No build step needed - this is a static site'"
+  },
+  "keywords": [
+    "birthday",
+    "cosmic",
+    "tarot",
+    "astrology",
+    "web",
+    "animation"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "gsap": "^3.12.2",
+    "canvas-confetti": "^1.6.0"
+  }
+}
